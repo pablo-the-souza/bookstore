@@ -1,3 +1,6 @@
+package com.bookstore.entity;
+
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -9,8 +12,8 @@ public class UsersTest {
 	public static void main(String[] args) {
 		Users user1 = new Users();
 		user1.setEmail("pablo.the.souza@gmail.com");
-		user1.setEmail("Pablo Souza");
-		user1.setEmail("123456");
+		user1.setFullName("Pablo Souza");
+		user1.setPassword("123456");
 		
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("BookStoreWebsite");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();

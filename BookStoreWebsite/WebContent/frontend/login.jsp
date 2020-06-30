@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Book Store Website</title>
+<title>Insert title here</title>
 </head>
 <body>
-  <h1> Welcome to Evergreen Book Store!</h1>
+
 </body>
 </html>
