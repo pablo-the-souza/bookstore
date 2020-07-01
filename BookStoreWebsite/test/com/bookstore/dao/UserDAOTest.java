@@ -5,6 +5,8 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -87,11 +89,28 @@ public class UserDAOTest {
 	
 	@Test
 	public void testDeleteUsers() {
-		Integer userId = 1;
+		Integer userId = 8;
 		userDAO.delete(userId);
-		Users user = userDAO.get(userId);
 		
+		Users user = userDAO.get(userId);
 		assertNull(user);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testDeleteNonExistentUser() {
+		Integer userId = 55;
+		userDAO.delete(userId);
+
+	}
+	
+	@Test
+	public void testListAll() {
+		List<Users> listAll = userDAO.listAll();
+		for (Users user : listAll) {
+			System.out.println(user.getEmail());
+		}
+		assertTrue(listAll.size() >0 );
+
 	}
 	
 	@AfterClass

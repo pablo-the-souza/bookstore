@@ -36,14 +36,13 @@ public class UserDAO extends JpaDAO<Users> implements GenericDAO<Users> {
 	}
 
 	@Override
-	public List listAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Users> listAll() {
+		return super.findWithNamedQuery("Users.findAll");
 	}
 
 	@Override
 	public long count() {
-		// TODO Auto-generated method stub
+		super.findWithNamedQuery("Users.countAll");
 		return 0;
 	}
 
