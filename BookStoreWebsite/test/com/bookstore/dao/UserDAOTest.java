@@ -1,6 +1,8 @@
 package com.bookstore.dao;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import javax.persistence.EntityManager;
@@ -62,6 +64,34 @@ public class UserDAOTest {
         String actual = user.getPassword();
 	    
 		assertEquals(expected,actual);
+	}
+	
+	@Test
+	public void testGetUsersFound() {
+		Integer userId = 1; 
+		Users user = userDAO.get(userId);
+		if (user!=null) {
+			System.out.println(user.getEmail());
+		}
+		
+		assertNotNull(user);		
+	}
+	
+	@Test
+	public void testGetUsersNotFound() {
+		Integer userId=99;
+		Users user = userDAO.get(userId);
+		
+		assertNull(user);		
+	}
+	
+	@Test
+	public void testDeleteUsers() {
+		Integer userId = 1;
+		userDAO.delete(userId);
+		Users user = userDAO.get(userId);
+		
+		assertNull(user);
 	}
 	
 	@AfterClass
